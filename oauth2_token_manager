@@ -402,7 +402,10 @@ Example usage:
     if args.debug:
         args.verbose = True
 
-    cachedir = user_cache_dir("oauth2_token_manager", ensure_exists=True)
+    # Debian Bookworm's version does not know ensure_exists
+    # cachedir = user_cache_dir("oauth2_token_manager", ensure_exists=True)
+    cachedir = user_cache_dir("oauth2_token_manager")
+    os.makedirs(cachedir, mode=0o700, exist_ok=True)
     args.tokenfile = os.path.join(cachedir, args.tokenfile)
 
     debug_log("Token file: ", args.tokenfile)

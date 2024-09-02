@@ -39,6 +39,12 @@ These can be installed using pip:
 pip install -r requirements.txt
 ```
 
+Or in Debian-based Linux systems:
+
+```sh
+sudo apt install python3-platformdirs python3-requests
+```
+
 
 ## Usage
 
