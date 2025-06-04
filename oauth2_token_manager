@@ -211,7 +211,7 @@ def run_updatetoken(token):
 
     verbose_log("Using refresh token to obtain new access token.")
     if not token["refresh_token"]:
-        error_log("No refresh token. Restart with --authorize.")
+        error_log("No refresh token. Restart with --authenticate.")
         sys.exit(1)
 
     api = get_service_api(token)
@@ -234,7 +234,7 @@ def run_updatetoken(token):
         if "error_description" in response:
             error_log(response["error_description"])
 
-        error_log("Error updating expired token. Try restart with --authorize")
+        error_log("Error updating expired token. Try restart with --authenticate")
         sys.exit(1)
 
     verbose_log("Got new access token.")
